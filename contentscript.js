@@ -5,6 +5,8 @@ function saveKeyboardEvent(e)
 
 document.addEventListener('keydown', function (e){saveKeyboardEvent(e);}, false);
 
+//document.getElementById("myBtn").addEventListener("click", displayDate);
+
 const config = 
 		{
 			'keyword1' = 'I',
