@@ -1,5 +1,5 @@
 {
-  "name": "Mental Health Helper",
+  "name": "Y.A.N.A.",
   "description" : "TechTogether 2020 Health Hack",
   "permissions": [
     "storage",
@@ -24,14 +24,11 @@
   "browser_action": {
     "default_popup": "hello.html"
   },
-  "manifest_version": 2,
-  "commands": {
-    "_execute_browser_action": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+F",
-        "mac": "MacCtrl+Shift+F"
-      },
-      "description": "Opens hello.html"
-    }
-  }
+  "icons": {
+    "16": "img.png",
+    "32": "img.png",
+    "48": "img.png",
+    "128": "img.png"
+  },
+  "manifest_version": 2
 }

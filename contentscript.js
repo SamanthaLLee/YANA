@@ -1,13 +1,7 @@
-function saveKeyboardEvent(e)
-{
-  console.log(e);
-  checkInputs();
-}
-
-function checkInputs()
+function checkInputs(event)
 {
   console.log("start check");
-  var words = ['sad', 'hopeless', 'depressed', 'suicide', 'anxious', 'kill myself', 'self-harm', 'cut myself', 'cutting myself'];
+  var words = ['hopeless', 'nothing matters', 'empty inside', 'always scared', 'feel worthless', 'no motivation', 'no energy', 'depressed', 'suicide', 'anxious', 'kill myself', 'self harm', 'cut myself', 'cutting myself'];
   var all_inputs = document.getElementsByTagName('input');
   console.log(all_inputs);
 
@@ -16,16 +10,14 @@ function checkInputs()
     {
       for(var j=0; j<words.length; j++) {
         if (~all_inputs[i].value.indexOf(words[j])){
-          console.log('omg it worked');
-
-          chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+          console.log('word detected');
+          chrome.runtime.sendMessage({msg: "msg"}, function(response) {
             console.log(response.status);
           });
-
         }
       }
     }
   }
 }
 
-document.addEventListener('keydown', function (e){saveKeyboardEvent(e);}, false);
+document.addEventListener('keydown', function (e){checkInputs(e);}, false);
