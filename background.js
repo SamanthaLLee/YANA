@@ -42,7 +42,7 @@ chrome.contextMenus.onClicked.addListener(function(clickData, tab){
         var currWord = words[k];
         var location = clickData.selectionText.match(currWord);
         console.log(location, words[k]);
-        if(location > -1)
+        if(location)
         {
           chrome.notifications.create('', opt1, function() { console.log("Last error:", chrome.runtime.lastError); });
         }
