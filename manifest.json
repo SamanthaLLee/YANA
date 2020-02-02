@@ -1,15 +1,26 @@
 {
-  "name": "Hello Extensions",
-  "description" : "Base Level Extension",
-  "permissions": ["storage"],
+  "name": "Mental Health Helper",
+  "description" : "TechTogether 2020 Health Hack",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "http://*/*",
+    "https://*/*"
+  ],
   "background": {
       "scripts": ["background.js"],
       "persistent": false
     },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
   "version": "1.0",
   "browser_action": {
-    "default_popup": "hello.html",
-    "default_icon": "hello_extensions.png"
+    "default_popup": "hello.html"
   },
   "manifest_version": 2,
   "commands": {
