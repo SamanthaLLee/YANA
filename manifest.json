@@ -6,7 +6,9 @@
     "tabs",
     "activeTab",
     "http://*/*",
-    "https://*/*"
+    "https://*/*",
+    "notifications",
+    "contextMenus"
   ],
   "background": {
       "scripts": ["background.js"],

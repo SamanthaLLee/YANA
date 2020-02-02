@@ -1,34 +1,31 @@
-// const config =
-// 		{
-// 			'keyword1' : 'I',
-// 			'keyword2' : 'me',
-// 			'keyword3' : 'myself'
-// 		};
-//
-// function saveKeyboardEvent(e)
-// {
-//   console.log(e);
-//   match();
-// }
-//
-// function match(input, obj)
-// {
-//   var matched = Object.keys(obj).find(key => input.toLowerCase().search(key) > -1);
-//   return obj[matched] || null;
-// }
-//
-// document.addEventListener('keydown', function (e){saveKeyboardEvent(e);}, false);
+function saveKeyboardEvent(e)
+{
+  console.log(e);
+  checkInputs();
+}
 
-document.getElementsByTagName('input').addEventListener("click", function (){
-  alert("Hi");
-});
+function checkInputs()
+{
+  console.log("start check");
+  var words = ['sad', 'hopeless', 'depressed', 'suicide', 'anxious', 'kill myself', 'self-harm', 'cut myself', 'cutting myself'];
+  var all_inputs = document.getElementsByTagName('input');
+  console.log(all_inputs);
 
-// let input = document.querySelector('input');
-// let log = document.getElementById('log');
-//
-// input.oninput = handleInput;
-//
-// function handleInput(e) {
-//   log.textContent = `The field's value is
-//       ${e.target.value.length} character(s) long.`;
-// }
+  for(var i=0; i<all_inputs.length; i++) {
+    if(all_inputs[i].type === 'text')
+    {
+      for(var j=0; j<words.length; j++) {
+        if (~all_inputs[i].value.indexOf(words[j])){
+          console.log('omg it worked');
+
+          chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
+            console.log(response.status);
+          });
+
+        }
+      }
+    }
+  }
+}
+
+document.addEventListener('keydown', function (e){saveKeyboardEvent(e);}, false);
